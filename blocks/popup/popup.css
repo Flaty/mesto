@@ -1,4 +1,4 @@
-.popup__bg {
+.popup {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -9,7 +9,7 @@
   pointer-events: none;
 }
 
-.popup__bg.active {
+.popup.active {
   opacity: 1;
   pointer-events: auto;
 }

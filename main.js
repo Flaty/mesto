@@ -27,7 +27,7 @@ profileCloseBtn.addEventListener('click', () => {
 profileEditBtn.addEventListener('click', function(evt) {
   evt.preventDefault();
   profileInputName.value = profileName.textContent;
-  profileInputProf.value = profileDics.textContent;
+  profileInputProf.value = profileProf.textContent;
 
   popupOpen()
 
@@ -36,7 +36,7 @@ profileEditBtn.addEventListener('click', function(evt) {
 submit.addEventListener('click', function(e) {
   e.preventDefault;
   profileName.textContent = profileInputName.value;
-  profileDics.textContent = profileInputProf.value;
+  profileProf.textContent = profileInputProf.value;
 
   popupClose()
 })

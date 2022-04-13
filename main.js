@@ -33,7 +33,7 @@ profileEditBtn.addEventListener('click', function(evt) {
 
 })
 
-submit.addEventListener('click', function(e) {
+btnPopupSubmit.addEventListener('click', function(e) {
   e.preventDefault;
   profileName.textContent = profileInputName.value;
   profileProf.textContent = profileInputProf.value;

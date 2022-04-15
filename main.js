@@ -9,11 +9,6 @@ const btnPopupSubmit = document.querySelector('.popup__submit-btn');
 const btnLikeActive = document.querySelector('.activeheart');
 const btnLike = document.querySelectorAll('.element__info-like')
 
-
-function popupOpen() {
-  popup.classList.add('active');
-}
-
 function popupClose() {
   popup.classList.remove('active');
 }
@@ -29,8 +24,7 @@ profileEditBtn.addEventListener('click', function(evt) {
   profileInputName.value = profileName.textContent;
   profileInputProf.value = profileProf.textContent;
 
-  popupOpen()
-
+  popup.classList.add('active');
 })
 
 btnPopupSubmit.addEventListener('click', function(e) {

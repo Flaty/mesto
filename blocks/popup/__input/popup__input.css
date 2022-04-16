@@ -9,3 +9,9 @@
 .popup__input:focus {
   outline: none;
 }
+
+@media screen and (max-width: 550px) {
+  .popup__input {
+    padding: 10px 0;
+  } 
+}

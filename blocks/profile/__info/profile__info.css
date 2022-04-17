@@ -9,10 +9,9 @@
 
 @media screen and (max-width: 1045px) {
   .profile__info {
-    width: 282px;
     grid-template-columns: 1fr 24px;
     row-gap: 2px;
     margin-top: 28px;
-    max-width: 225px;
+    max-width: 282px;
   }
 }

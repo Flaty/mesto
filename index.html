@@ -13,17 +13,15 @@
   <header class="header">
     <img class="header__logo" alt="лого" src="./images/header/Vector.png">
   </header>
-  <div class="main">
+  <article class="main">
   <section class="profile">
-    <div class="profile__avatar"></div>
+    <div class="profile__avatar" style="background-image: url(./images/profile/image.png);"></div>
     <div class="profile__info">
       <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-      <a class="profile__edit-btn" title="Редактировать профиль"></a>
+      <button type="button" class="profile__edit-btn" title="Редактировать профиль"></button>
       <p class="profile__info-work">Исследователь океана</p>
     </div>
-    <button type="button" title="Добавить фото" class="profile__add-btn">
-      <img alt="плюс" src="./images/profile/Vector.png">
-    </button>
+    <button type="button" title="Добавить фото" class="profile__add-btn"></button>
   </section>
 
   <section class="elements">
@@ -31,67 +29,63 @@
       <img class="element__photo" alt="Карачаевск" src="./images/element/kirill-pershin-1088404-unsplash.png">
       <div class="element__info">
         <h2 class="element__info-name">Карачаевск</h2>
-        <div class="element__info-like"></div>
+        <button type="button" class="element__info-like"></button>
       </div>
     </div>
     <div class="element">
       <img class="element__photo" alt="Гора Эльбрус" src="./images/element/kirill-pershin-1404681-unsplash.png">
       <div class="element__info">
         <h2 class="element__info-name">Гора Эльбрус</h2>
-        <div class="element__info-like"></div>
+        <button type="button" class="element__info-like"></button>
       </div>
     </div>
     <div class="element">
       <img class="element__photo" alt="Домбай" src="./images/element/kirill-pershin-1556355-unsplash.png">
       <div class="element__info">
         <h2 class="element__info-name">Домбай</h2>
-        <div class="element__info-like"></div>
+        <button type="button" class="element__info-like"></button>
       </div>
     </div>
     <div class="element">
       <img class="element__photo" alt="Гора Эльбрус" src="./images/element/kirill-pershin-1088404-unsplash.png">
       <div class="element__info">
         <h2 class="element__info-name">Гора Эльбрус</h2>
-        <div class="element__info-like"></div>
+        <button type="button" class="element__info-like"></button>
       </div>
     </div>
     <div class="element">
       <img class="element__photo" alt="Домбай" src="./images/element/kirill-pershin-1404681-unsplash.png">
       <div class="element__info">
         <h2 class="element__info-name">Домбай</h2>
-        <div class="element__info-like"></div>
+        <button type="button" class="element__info-like"></button>
       </div>
     </div>
     <div class="element">
       <img class="element__photo" alt="Карачаево" src="./images/element/kirill-pershin-1556355-unsplash.png">
       <div class="element__info">
-        <h2 class="element__info-name">Карачаево</h2>
-        <div class="element__info-like"></div>
+        <h2 class="element__info-name">Карачаево-черкесаво</h2>
+        <button type="button" class="element__info-like"></button>
       </div>
     </div>
   </section>
-</div>
+</article>
   <footer class="footer">
     <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
 
   <div class="popup">
-    <form class="popup__body">
+    <div class="popup__body">
       <div class="popup__content">
-        <img src="./images/closeicon.png" alt="Кнопка закрыть" class="popup__close">
-        <p class="popup__title">Редактировать профиль</p>
-        <label class="popup__form-field">
+        <button type="button" class="popup__close"></button>
+        <h3 class="popup__title">Редактировать профиль</h3>
           <input type="text" name="name" id="name" placeholder="Имя" class="popup__input popup__input_type_name">
-        </label>
-        <label class="popup__form-field">
           <input type="text" name="prof" id="prof" placeholder="Профессия" class="popup__input popup__input_type_prof">
-        </label>
-        <button type="button" class="popup__submit-btn">Сохранить</button>
+        <button type="submit" class="popup__submit-btn">Сохранить</button>
       </div>
-    </form>
+    </div>
   </div>
 
-  <script src="./main.js"></script>
+  <script src="./index.js"></script>
 
 </body>
 </html>

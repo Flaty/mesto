@@ -10,6 +10,8 @@
   height: 32px;
   cursor: pointer;
   transition: opacity .1s linear;
+  background: center / cover  no-repeat url(../../../images/popup/btnClose.svg);
+  border: 0;
 }
 
 .popup__close:hover {

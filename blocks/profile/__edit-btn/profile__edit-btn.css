@@ -1,5 +1,5 @@
 .profile__edit-btn {
-  background-image: url(../../../images/profile/editbtn.png);
+  background-image: url(../../../images/profile/editbtnpencil.svg);
   width: 24px;
   height: 24px;
   background-color: transparent;
@@ -22,7 +22,7 @@
     background-size: 7.5px;
     width: 16px;
     height: 16px;
-    background-image: url(../../../images/profile/editbtnlow.png);
+    background-image: url(../../../images/profile/editbtnpencil.svg);
     align-self: center;
     justify-self: flex-start;
     margin-bottom: 7px;

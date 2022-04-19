@@ -7,28 +7,33 @@ const profileInputName = document.querySelector('.popup__input_type_name');
 const profileInputProf = document.querySelector('.popup__input_type_prof');
 const btnPopupSubmit = document.querySelector('.popup__submit-btn');
 const btnLikeActive = document.querySelector('.activeheart');
-const btnLike = document.querySelectorAll('.element__info-like')
+const btnLike = document.querySelectorAll('.element__info-like');
+const formev = document.querySelector('.form');
 
-profileCloseBtn.addEventListener('click', () => {
-  popup.classList.remove('active');
-})
+function popupClose() {
+  popup.classList.remove('popup__opened');
+}
 
-profileEditBtn.addEventListener('click', function(evt) {
-  evt.preventDefault();
-
+function popupOpen() {
   profileInputName.value = profileName.textContent;
   profileInputProf.value = profileProf.textContent;
 
-  popup.classList.add('active');
-})
+  popup.classList.add('popup__opened');
+}
 
-btnPopupSubmit.addEventListener('click', function(e) {
-  e.preventDefault;
+function popupSbmt(Event) {
+  Event.preventDefault();
 
   profileName.textContent = profileInputName.value;
   profileProf.textContent = profileInputProf.value;
 
-  popup.classList.remove('active')
-})
+  popup.classList.remove('popup__opened')
+}
+
+profileCloseBtn.addEventListener('click', popupClose)
+
+profileEditBtn.addEventListener('click', popupOpen)
+
+formev.addEventListener('submit', popupSbmt)
 
 

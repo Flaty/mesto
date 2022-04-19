@@ -9,7 +9,7 @@
   pointer-events: none;
 }
 
-.popup.active {
+.popup.popup__opened {
   opacity: 1;
   pointer-events: auto;
 }

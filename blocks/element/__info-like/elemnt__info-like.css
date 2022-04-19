@@ -1,11 +1,12 @@
 .element__info-like {
-  background-image: url(../../../../images/element/heart.png);
+  background-image: url(../../../images/element/btnLikeElement.svg);
   width: 22px;
   height: 19px;
   margin: 0;
   padding: 0;
   transition: opacity .2s linear;
   border: 0;
+  background-color: white;
 }
 
 .element__info-like:hover {
@@ -13,5 +14,5 @@
 }
 
 .element__info-like.activeheart {
-  background-image: url(../../../../images/element/Union.png);
+  background-image: url(../../../images/element/btnLikeElement.svg);
 }

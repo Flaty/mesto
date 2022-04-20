@@ -7,9 +7,15 @@
   left: 0;
   opacity: 0;
   pointer-events: none;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.popup.popup__opened {
-  opacity: 1;
-  pointer-events: auto;
+@media screen and (max-width: 550px) {
+  .popup {
+    padding-left: 19px;
+    padding-right: 19px;
+  } 
 }

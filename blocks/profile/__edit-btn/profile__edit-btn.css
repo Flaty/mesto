@@ -3,7 +3,7 @@
   width: 24px;
   height: 24px;
   background-color: transparent;
-  align-self: flex-end;
+  align-self: center;
   justify-self: flex-end;
   cursor: pointer;
   transition: opacity .1s linear;
@@ -22,7 +22,6 @@
     background-size: 7.5px;
     width: 16px;
     height: 16px;
-    background-image: url(../../../images/profile/editbtnpencil.svg);
     align-self: center;
     justify-self: flex-start;
     margin-bottom: 7px;

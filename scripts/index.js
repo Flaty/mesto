@@ -5,7 +5,7 @@ const profileName = document.querySelector('.profile__info-name');
 const profileProf = document.querySelector('.profile__info-work');
 const profileInputName = document.querySelector('.popup__input_type_name');
 const profileInputProf = document.querySelector('.popup__input_type_prof');
-const formSubmit = document.querySelector('.form');
+const formSubmit = document.querySelector('.popup__form');
 
 function popupClose() {
   popup.classList.remove('popup_opened');

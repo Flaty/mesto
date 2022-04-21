@@ -3,7 +3,7 @@
   margin: 22px 0 0 30px;
   display: grid;
   grid-template-columns: 294px 42px;
-  grid-template-rows: 50px 18px;
+  grid-template-rows: 50px 26px;
   row-gap: 5px;
 }
 
@@ -13,5 +13,7 @@
     row-gap: 2px;
     margin-top: 28px;
     max-width: 282px;
+    grid-template-rows: 38px 18px;
+    margin-left: 23px;
   }
 }

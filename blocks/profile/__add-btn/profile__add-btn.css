@@ -12,6 +12,7 @@
   border: 2px solid white;
   border-radius: 2px;
   background: center / 22px 22px  no-repeat url(../../../images/profile/addbtnplus.svg);
+  -webkit-appearance: none;
 }
 
 .profile__add-btn:hover {

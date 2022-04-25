@@ -13,4 +13,5 @@
   justify-content: center;
   margin: 0;
   padding: 0;
+  transition: opacity .15s linear 0s;
 }

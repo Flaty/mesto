@@ -1,0 +1,12 @@
+.popupImage__content {
+  max-width: 75vw;
+  max-height: 75vh;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  cursor: pointer;
+  object-fit: contain;
+}

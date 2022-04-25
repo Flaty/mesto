@@ -10,6 +10,7 @@
   top: 20px;
   transition: opacity .1s linear;
   cursor: pointer;
+  object-fit: cover;
 }
 
 .element__trash:hover {

@@ -1,6 +1,6 @@
 const profileEditBtn = document.querySelector('.profile__edit-btn');
 const cardAddBtn = document.querySelector('.profile__add-btn')
-const popup = document.querySelector('.popup');
+const popupEditProfile = document.querySelector('.popup');
 const profileCloseBtn = document.querySelector('.popup__close');
 const popupTemplateCloseBtn = document.querySelector('.popupTemplate__close')
 const profileName = document.querySelector('.profile__info-name');
@@ -8,10 +8,10 @@ const profileProf = document.querySelector('.profile__info-work');
 const profileInputName = document.querySelector('.popup__input_type_name');
 const profileInputProf = document.querySelector('.popup__input_type_prof');
 const formSubmit = document.querySelector('.popup__form');
-const elements = document.querySelector('.elements');
+const cardContainer = document.querySelector('.elements');
 const popupTemplate = document.querySelector('.popupTemplate')
-const cardName = document.querySelector('.popupTemplate__input_type_name')
-const cardLink = document.querySelector('.popupTemplate__input_type_link')
+const cardName = document.querySelector('.popupTemplate__name')
+const cardLink = document.querySelector('.popupTemplate__link')
 const formSubmitCard = document.querySelector('.popupTemplate__form')
 const btnLike = document.querySelector('.element__info-like')
 const elementTemplate = document.querySelector('#elementTemplate').content;
@@ -45,62 +45,72 @@ const initialCards = [
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-]; 
-// Перебор карточек из tempalte
-initialCards.forEach(function (card) {
-  const elementClone = elementTemplate.querySelector('.element').cloneNode(true);
+];
 
-  elementClone.querySelector('.element__photo').src = card.link;
-  elementClone.querySelector('.element__info-name').textContent = card.name;
+//Функция возвращения карточки
+function createCard(name, link) { 
+  const element = elementTemplate.querySelector('.element').cloneNode(true)
+  const photo = element.querySelector('.element__photo');
+  const infoName = element.querySelector('.element__info-name');
+  const like = element.querySelector('.element__info-like'); //создается DOM элемент карточки
+  const remove = element.querySelector('.element__trash');
+  photo.src = link //в карточку вставляются данные и навешиваются обработчики 
+  infoName.textContent = name;
+  photo.alt = name
 
-  elementClone.querySelector('.element__photo').alt = card.name;
-
-  elementClone.querySelector('.element__info-like').addEventListener('click', function(evt) {
-    evt.target.classList.toggle('element__info-like_active')
+  like.addEventListener('click', function(event) {
+    event.target.classList.toggle('element__info-like_active')
   })
-
-  elementClone.querySelector('.element__trash').addEventListener('click', function(evt) {
-    evt.target.closest('.element').remove()
-  })  
-
-  elementClone.querySelector('.element__photo').addEventListener('click', function(evt) {
-    popupImage.classList.add('popup_opened')
-
-    popupImagePic.src = evt.target.src
-
-    popupImageTitle.textContent = evt.target.alt
+  remove.addEventListener('click', function(event) {
+    event.target.closest('.element').remove()
   })
+  photo.addEventListener('click', function(event) {
+    popupTemplateOpen(popupTemplate)
 
-  elements.append(elementClone)
-});
+    popupImagePic.src = event.target.src
+
+    popupImagePic.alt = event.target.alt
+
+    popupImageTitle.textContent = event.target.alt
+  })
+  return element; //возвращается созданная карточка 
+}
+
+
+//Добавление карточки
+function renderCard(container, cardElement) {
+  container.prepend(cardElement)
+}
+//Перебор готовых карточек в контейнер
+initialCards.map(function(card) {
+  renderCard(cardContainer, createCard(card.name, card.link))
+})
 // Открытие popupTemplate
 function popupTemplateOpen() {
-  popupTemplate.classList.add('popup_opened')
-  const name = document.querySelector('.popupTemplate__input_type_name');
-  const link = document.querySelector('.popupTemplate__input_type_link')
-  name.value = ''
-  link.value = ''
+  /* popupTemplate.classList.add('popup_opened'); */
+  popupOpen()
+  document.querySelector('.popupTemplate__form').reset();
 }
 // Закрытие popupTemplate
 function popupTemplateClose() {
-  popupTemplate.classList.remove('popup_opened')
+  popupTemplate.classList.remove('popup_opened');
 }
 // Закрытие popup
-function popupClose() {
+function popupClose(popup) {
   popup.classList.remove('popup_opened');
 }
 function popupImgClose() {
-  popupImage.classList.remove('popup_opened')
+  popupImage.classList.remove('popup_opened');
 }
 // Открытие popup
-function popupOpen() {
+function popupOpen(popup) {
   profileInputName.value = profileName.textContent;
   profileInputProf.value = profileProf.textContent;
 
   popup.classList.add('popup_opened');
 }
 function popupImageOpen() {
-  popupImage.classList.add('popup_opened')
+  popupImage.classList.add('popup_opened');
 }
 // Submit popup
 function popupSbmt(event) {
@@ -114,47 +124,19 @@ function popupSbmt(event) {
 // Создание карточек
 function popupSbmtCard(event) {
   event.preventDefault();
-  const name = document.querySelector('.popupTemplate__input_type_name');
-  const link = document.querySelector('.popupTemplate__input_type_link');
-  addCardClone(link.value, name.value);
+  const name = document.querySelector('.popupTemplate__name');
+  const link = document.querySelector('.popupTemplate__link');
+  renderCard(cardContainer, createCard(name.value, link.value))
   
   popupTemplateClose();
 }
-// Создание карточек
-function addCardClone(cardLinkValue = 'https://traveltimes.ru/wp-content/uploads/2021/06/shavlinskie-ozera5-Nizhnee.jpg', cardNameValue = 'Алтай') {
-  const elementClone = elementTemplate.querySelector('.element').cloneNode(true);
-
-  elementClone.querySelector('.element__photo').src = cardLinkValue;
-  elementClone.querySelector('.element__info-name').textContent = cardNameValue;
-
-  elementClone.querySelector('.element__photo').alt = cardNameValue;
-
-  elementClone.querySelector('.element__info-like').addEventListener('click', function(evt) {
-    evt.target.classList.toggle('element__info-like_active')
-  })
-
-  elementClone.querySelector('.element__trash').addEventListener('click', function(evt) {
-    evt.target.closest('.element').remove()
-  })
-  
-  elementClone.querySelector('.element__photo').addEventListener('click', function(evt) {
-    popupImage.classList.add('popup_opened')
-
-    popupImagePic.src = evt.target.src
-    
-    popupImageTitle.textContent = evt.target.alt
-  })
-
-  elements.prepend(elementClone);
-}
-
 popupImageClose.addEventListener('click', popupImgClose)
 
 popupTemplateCloseBtn.addEventListener('click', popupTemplateClose)
 
 cardAddBtn.addEventListener('click', popupTemplateOpen)
 
-profileCloseBtn.addEventListener('click', popupClose)
+profileCloseBtn.addEventListener('click', popupClose())
 
 profileEditBtn.addEventListener('click', popupOpen)
 

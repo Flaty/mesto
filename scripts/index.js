@@ -65,7 +65,8 @@ function createCard(name, link) {
     event.target.closest('.element').remove()
   })
   photo.addEventListener('click', function(event) {
-    popupTemplateOpen(popupTemplate)
+    
+    popupDefaultOpen(popupImage)
 
     popupImagePic.src = event.target.src
 
@@ -76,6 +77,13 @@ function createCard(name, link) {
   return element; //возвращается созданная карточка 
 }
 
+function popupDefaultOpen(popup){
+  popup.classList.add('popup_opened')
+}
+
+function popupDefaultClose(popup){
+  popup.classList.add('popup_opened')
+}
 
 //Добавление карточки
 function renderCard(container, cardElement) {
@@ -87,8 +95,7 @@ initialCards.map(function(card) {
 })
 // Открытие popupTemplate
 function popupTemplateOpen() {
-  /* popupTemplate.classList.add('popup_opened'); */
-  popupOpen()
+  popupDefaultOpen(popupTemplate)
   document.querySelector('.popupTemplate__form').reset();
 }
 // Закрытие popupTemplate
@@ -96,8 +103,8 @@ function popupTemplateClose() {
   popupTemplate.classList.remove('popup_opened');
 }
 // Закрытие popup
-function popupClose(popup) {
-  popup.classList.remove('popup_opened');
+function popupClose() {
+  popupEditProfile.classList.remove('popup_opened');
 }
 function popupImgClose() {
   popupImage.classList.remove('popup_opened');
@@ -107,7 +114,7 @@ function popupOpen(popup) {
   profileInputName.value = profileName.textContent;
   profileInputProf.value = profileProf.textContent;
 
-  popup.classList.add('popup_opened');
+  popupDefaultOpen(popupEditProfile)
 }
 function popupImageOpen() {
   popupImage.classList.add('popup_opened');
@@ -119,7 +126,8 @@ function popupSbmt(event) {
   profileName.textContent = profileInputName.value;
   profileProf.textContent = profileInputProf.value;
 
-  popupClose();
+  //popupClose()
+  popupDefaultOpen(popupEditProfile)
 }
 // Создание карточек
 function popupSbmtCard(event) {
@@ -136,7 +144,7 @@ popupTemplateCloseBtn.addEventListener('click', popupTemplateClose)
 
 cardAddBtn.addEventListener('click', popupTemplateOpen)
 
-profileCloseBtn.addEventListener('click', popupClose())
+profileCloseBtn.addEventListener('click', popupClose)
 
 profileEditBtn.addEventListener('click', popupOpen)
 

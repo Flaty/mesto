@@ -120,7 +120,7 @@ function popupImageOpen() {
   popupImage.classList.add('popup_opened');
 }
 // Submit popup
-function popupSbmt(event) {
+function popupEditProfileSbmt(event) {
   event.preventDefault();
 
   profileName.textContent = profileInputName.value;
@@ -130,7 +130,7 @@ function popupSbmt(event) {
   popupDefaultOpen(popupEditProfile)
 }
 // Создание карточек
-function popupSbmtCard(event) {
+function popupCreateCardSbmt(event) {
   event.preventDefault();
   const name = document.querySelector('.popupTemplate__name');
   const link = document.querySelector('.popupTemplate__link');
@@ -148,7 +148,7 @@ profileCloseBtn.addEventListener('click', popupClose)
 
 profileEditBtn.addEventListener('click', popupOpen)
 
-formSubmit.addEventListener('submit', popupSbmt)
+formSubmit.addEventListener('submit', popupEditProfileSbmt)
 
-formSubmitCard.addEventListener('submit', popupSbmtCard)
+formSubmitCard.addEventListener('submit', popupCreateCardSbmt)
 

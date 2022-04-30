@@ -66,7 +66,7 @@ function createCard(name, link) {
   })
   photo.addEventListener('click', function(event) {
     
-    popupDefaultOpen(popupImage)
+    popupOpen(popupImage)
 
     popupImagePic.src = event.target.src
 
@@ -77,48 +77,55 @@ function createCard(name, link) {
   return element; //возвращается созданная карточка 
 }
 
-function popupDefaultOpen(popup){
+function popupOpen(popup){
   popup.classList.add('popup_opened')
 }
 
-function popupDefaultClose(popup){
-  popup.classList.add('popup_opened')
+function popupClose(popup){
+  popup.classList.remove('popup_opened')
 }
 
 //Добавление карточки
 function renderCard(container, cardElement) {
   container.prepend(cardElement)
 }
+
 //Перебор готовых карточек в контейнер
 initialCards.map(function(card) {
   renderCard(cardContainer, createCard(card.name, card.link))
 })
-// Открытие popupTemplate
-function popupTemplateOpen() {
-  popupDefaultOpen(popupTemplate)
+
+function popupCreateCardOpen() {
+  popupOpen(popupTemplate)
   document.querySelector('.popupTemplate__form').reset();
 }
+
 // Закрытие popupTemplate
 function popupTemplateClose() {
-  popupTemplate.classList.remove('popup_opened');
+  popupClose(popupTemplate)
 }
+
 // Закрытие popup
-function popupClose() {
-  popupEditProfile.classList.remove('popup_opened');
+function popupEditProfileClose() {
+  popupClose(popupEditProfile);
 }
+
 function popupImgClose() {
-  popupImage.classList.remove('popup_opened');
+  popupClose(popupImage)
 }
+
 // Открытие popup
-function popupOpen(popup) {
+function popupEditProfileOpen() {
   profileInputName.value = profileName.textContent;
   profileInputProf.value = profileProf.textContent;
 
-  popupDefaultOpen(popupEditProfile)
+  popupOpen(popupEditProfile)
 }
+
 function popupImageOpen() {
-  popupImage.classList.add('popup_opened');
+  popupOpen(popupImage);
 }
+
 // Submit popup
 function popupEditProfileSbmt(event) {
   event.preventDefault();
@@ -127,8 +134,9 @@ function popupEditProfileSbmt(event) {
   profileProf.textContent = profileInputProf.value;
 
   //popupClose()
-  popupDefaultOpen(popupEditProfile)
+  popupClose(popupEditProfile)
 }
+
 // Создание карточек
 function popupCreateCardSbmt(event) {
   event.preventDefault();
@@ -138,15 +146,16 @@ function popupCreateCardSbmt(event) {
   
   popupTemplateClose();
 }
+
 popupImageClose.addEventListener('click', popupImgClose)
 
 popupTemplateCloseBtn.addEventListener('click', popupTemplateClose)
 
-cardAddBtn.addEventListener('click', popupTemplateOpen)
+cardAddBtn.addEventListener('click', popupCreateCardOpen)
 
-profileCloseBtn.addEventListener('click', popupClose)
+profileCloseBtn.addEventListener('click', popupEditProfileClose)
 
-profileEditBtn.addEventListener('click', popupOpen)
+profileEditBtn.addEventListener('click', popupEditProfileOpen)
 
 formSubmit.addEventListener('submit', popupEditProfileSbmt)
 

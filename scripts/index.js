@@ -107,10 +107,6 @@ function editFormModalWindowOpen() {
   popupOpen(editFormModalWindow);
 }
 
-function popupImageOpen() {
-  popupOpen(imageModalWindow);
-}
-
 function editFormModalWindowSbmt(event) {
   event.preventDefault();
 

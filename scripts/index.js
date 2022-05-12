@@ -62,9 +62,11 @@ function createCard(name, link) {
   like.addEventListener('click', function(event) {
     event.target.classList.toggle('element__info-like_active');
   })
+
   remove.addEventListener('click', function(event) {
     event.target.closest('.element').remove();
   })
+
   photo.addEventListener('click', function(event) {
 
     popupOpen(imageModalWindow);
@@ -127,6 +129,8 @@ function cardFormModalWindowSbmt(event) {
   popupClose(cardFormModalWindow);
 }
 
+
+
 cardFormModalWindowCloseBtn.addEventListener('click', () => popupClose(cardFormModalWindow));
 
 cardFormModalWindowOpenBtn.addEventListener('click', cardFormModalWindowOpen);
@@ -140,4 +144,33 @@ editFormModalWindowOpenBtn.addEventListener('click', editFormModalWindowOpen);
 editFormModalWindowSbmtBtn.addEventListener('submit', editFormModalWindowSbmt);
 
 imageModalWindowCloseBtn.addEventListener('click', () => popupClose(imageModalWindow));
+
+//Закрытие попапов по пустому полю
+
+document.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape') {
+    popupClose(cardFormModalWindow);
+    popupClose(imageModalWindow);
+    popupClose(editFormModalWindow);
+  }
+})
+
+imageModalWindow.addEventListener('click', (evt) => {
+if (!evt.target.closest('.popup__content') && !evt.target.closest('.popup__close')) { // если этот элемент или его родительские элементы не окно навигации и не кнопка
+   popupClose(imageModalWindow)// то закрываем окно навигации, удаляя активный класс
+}
+})
+
+editFormModalWindow.addEventListener('click', (evt) => {
+  if (!evt.target.closest('.popup__content') && !evt.target.closest('.popup__close')) { // если этот элемент или его родительские элементы не окно навигации и не кнопка
+     popupClose(editFormModalWindow)// то закрываем окно навигации, удаляя активный класс
+  }
+});
+
+cardFormModalWindow.addEventListener('click', (evt) => {
+  if (!evt.target.closest('.popup__content') && !evt.target.closest('.popup__close')) { // если этот элемент или его родительские элементы не окно навигации и не кнопка
+     popupClose(cardFormModalWindow)// то закрываем окно навигации, удаляя активный класс
+  }
+  })
+
 

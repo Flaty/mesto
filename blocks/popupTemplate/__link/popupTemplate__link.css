@@ -1,0 +1,32 @@
+.popup_input-error {
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  transition: .3s;
+  opacity: 0;
+  top: 35px; 
+  left: 0;
+  width: 358px;
+}
+
+.popup__input-type-error {
+  opacity: 1;
+}
+
+.popup_input-error-border {
+  border-bottom: 1px solid rgba(255,0,0,1);
+}
+
+.form__field {
+  position: relative;
+}
+
+.popup__submit-btn_inactive {
+  color: black;
+  opacity: .3;
+  background-color: white;
+  pointer-events: none;
+}

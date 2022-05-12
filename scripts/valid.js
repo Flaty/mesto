@@ -12,7 +12,6 @@ function hideError(formElement,inputElement) {
   errorElement.classList.remove('popup__input-type-error'); 
   errorElement.textContent= '';
 }
-
 //Присваивание каждой форме отслеживание
 function setEventListener(formElement) {
   const inputList = Array.from(formElement.querySelectorAll('.popup__input'));

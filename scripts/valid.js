@@ -66,8 +66,4 @@ function toggleButton(inputList, buttonElement) {
   }
 }
 
-function resetFormError() {
-  const inputList = Array.from(document.querySelectorAll(''))
-}
-
 enableValidation();

@@ -9,7 +9,8 @@
   opacity: 0;
   top: 35px; 
   left: 0;
-  width: 358px;
+  width: 345px;
+  z-index: 2;
 }
 
 .popup__input-type-error {
@@ -29,4 +30,10 @@
   opacity: .3;
   background-color: white;
   pointer-events: none;
+}
+
+.popup__fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
